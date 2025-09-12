@@ -434,14 +434,13 @@ def classify_docs_to_fields(docs: List[dict]) -> Dict[str, List[Tuple[datetime, 
         per_field[k].sort(key=lambda t: t[0])
     return per_field
 
-def join_fields_as_input(per_field: Dict[str, List[Tuple[datetime,str]]]) -> str:
-    """
-    Construit le bloc d’entrée pour la synthèse LLM, ordonné par thème puis chrono (asc).
-    """
+def join_fields_as_input(per_field: Dict[str, List[Tuple[datetime,str]]],
+                         only_categories: list[str] | None = None) -> str:
+    cats = only_categories or DAILY_FIELDS
     blocks = []
-    for k in DAILY_FIELDS:
+    for k in cats:
         items = per_field.get(k, [])
-        if not items: 
+        if not items:
             continue
         lines = [f"- {txt}" for _, txt in items]
         blocks.append(f"## {k}\n" + "\n".join(lines))
@@ -539,10 +538,11 @@ if st.button("⚙️ Générer le Weekly"):
             st.warning("Aucune source sélectionnée/trouvée (vérifie la sélection d’e-mails ou tes PDFs).")
         else:
             per_field = classify_docs_to_fields(docs)
-            weekly_input = join_fields_as_input(per_field)
+            weekly_input = join_fields_as_input(per_field, only_categories=chosen)   # seulement les cochées
             llm = synth_llm_weekly(weekly_input)
 
-            fields = {k: dedupe_bullets(llm.get(k,"")) for k in DAILY_FIELDS}
+# Ne garder QUE les catégories sélectionnées
+            fields = {k: dedupe_bullets(llm.get(k,"")) for k in chosen}
             global_summary = dedupe_bullets(llm.get("global_summary",""))
             week_key = iso_week_key(monday)
 
@@ -573,7 +573,7 @@ if st.button("⚙️ Générer le Weekly"):
             save_json(weekly_path(wk['week']), wk); st.success(f"Weekly sauvegardé : {weekly_path(wk['week'])}")
 
 # ---- MONTHLY ----
-else:
+elif page=="Monthly":
     st.subheader("Monthly")
 
     today = date.today()
