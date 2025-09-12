@@ -1,0 +1,9 @@
+# secrets locaux (NE PAS PUSH)
+.streamlit/secrets.toml
+
+# fichiers générés par l'app
+data/
+*.db
+*.sqlite
+__pycache__/
+*.pyc
