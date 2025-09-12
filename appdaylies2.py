@@ -1,4 +1,6 @@
 import streamlit as st
+from __future__ import annotations
+
 
 # ---- Gate d’accès (facultatif mais recommandé) ----
 gate = st.secrets.get("APP_PASSWORD", "")
@@ -7,7 +9,6 @@ if gate:
     if pw != gate:
         st.stop()
 
-from __future__ import annotations
 import os, re, json, imaplib, email, io
 from email.header import decode_header, make_header
 from email.utils import parsedate_to_datetime
