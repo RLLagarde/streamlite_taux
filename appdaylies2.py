@@ -1,4 +1,4 @@
-import streamlit as st
+#import streamlit as st
 
 # # ---- Gate d’accès (facultatif mais recommandé) ----
 # gate = st.secrets.get("APP_PASSWORD", "")
