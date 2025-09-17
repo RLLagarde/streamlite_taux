@@ -1395,7 +1395,7 @@ def dedupe_bullets(text: str) -> str:
             out.append(f"- {ln.strip().strip('•-–·* ')}")
     return "\n".join(out)
 
-def summarize_texts(texts: List[str], max_bullets=12) -> str:
+def summarize_texts(texts: List[str], max_bullets=20) -> str:
     tokens = []
     for t in texts or []:
         for ln in str(t or "").splitlines():
@@ -1585,7 +1585,7 @@ Enfin, sur le plan des notations, S&P a relevé la note de Sava Re et de Zavarov
 -----
 Attendu (JSON strict) :
 {
-  "global_summary": "Bien s'inspirer des exemples donnés ci dessous pour la structure. Enttre 300 et 500 mots. paragraphe structuré, fluide. Un retour à la ligne par thème (m&a, primary market, results, spreads, autres infos).",
+  "global_summary": "Entre 300 et 500 mots. Bien s'inspirer des exemples donnés ci dessous pour la structure. paragraphe structuré, fluide. Un retour à la ligne par thème (m&a, primary market, results, spreads, autres infos).",
   "ma_and_ratings": ["2 à 8 puces propres"],
   "results": ["2 à 8 puces propres"],
   "financial_credit_spreads": ["2 à 8 puces propres"],
@@ -1693,7 +1693,7 @@ def classify_with_openai(text: str) -> Dict[str, str]:
 
 def synth_llm_weekly(weekly_input_text: str) -> Dict[str,str]:
     if not client:
-        return {"global_summary": summarize_texts([weekly_input_text], 12), **{k: "" for k in DAILY_FIELDS}}
+        return {"global_summary": summarize_texts([weekly_input_text], 20), **{k: "" for k in DAILY_FIELDS}}
     usr = WEEKLY_USER_TMPL.replace("[[WEEKLY_INPUT]]", weekly_input_text[:80000])
     try:
         r = client.chat.completions.create(
