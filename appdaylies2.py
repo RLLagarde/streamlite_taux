@@ -242,7 +242,7 @@ WEEKLY_USER_TMPL = """Contenu agrégé (par rubrique) :
 ---
 [[WEEKLY_INPUT]]
 ---
-Exemples de sortie attendue 'global_summary' :
+Exemples de sortie attendue pour 'global_summary' :
 {
   "global_summary": " 
   
@@ -272,7 +272,7 @@ Enfin, sur le plan des notations, S&P a relevé la note de Sava Re et de Zavarov
 -----
 Attendu (JSON strict) :
 {
-  "global_summary": "Quelques lignes par catégories. Ne pas omettre d'informations. Paragraphe structuré, fluide. Un retour à la ligne par thème (m&a, primary market, results, spreads, autres infos).",
+  "global_summary": "Prendre exemple sur les deux exemples fournis ci-dessus. Ne pas omettre d'informations. Paragraphe structuré, fluide. Un retour à la ligne par thème (m&a, primary market, results, spreads, autres infos).",
   "ma_and_ratings": ["2 à 8 puces propres"],
   "results": ["2 à 8 puces propres"],
   "financial_credit_spreads": ["2 à 8 puces propres"],
