@@ -1603,9 +1603,46 @@ MONTHLY_USER_TMPL = """Contenu agrégé weeklies (par rubrique) :
 ---
 [[MONTHLY_INPUT]]
 ---
+
+Exemples de sortie attendue 'global_summary' :
+{
+  "global_summary": " Mai 2025 :
+Le mois de mai a été positif pour les dettes financières, qui poursuivent leur redressement et effacent même complètement le sell-off des droits douaniers en termes de spread.
+ 
+Les spreads bancaires se sont donc resserrés sur le mois : -14 bps sur les Senior, -20 bps sur les Tier 2, et -41 bps sur les AT1 (-30 bps AT1 euros). Pour les assureurs, nous avons eu un resserrement de -11 bps sur les Senior et de -21 bps sur les Subordonnées.
+Sur les taux, la courbe € est globalement stable sur le mois, tandis que les courbes £ et $ se sont tendues parallèlement d’environ 20 bps.
+Cela s’est traduit par une performance positive sur l’ensemble de la structure de capital, avec une progression de +0,5 % pour les Seniors, +0,7 % pour les Tier 2, +1,6 % pour les AT1 (+1,7 % pour les AT1 en euros), et respectivement +0,4 % et +1,1 % pour les Seniors et Subordonnées d’assurance.
+Dans ces conditions, le marché primaire a été particulièrement actif post-publication des résultats, et bien accueilli avec des carnets d’ordres solides.
+ 
+Les résultats du premier trimestre 2025 des institutions financières européennes ont continué d’être excellents, côté banques comme assurances, avec des RoTE entre 10 % et 16 % en moyenne, avec à ce stade des guidances qui ne sont pas affectées par les droits de douane.
+ 
+En matière de fusions-acquisitions, Santander a rejeté l’offre de NatWest pour sa banque de détail britannique, tandis qu'Erste Bank a acquis une participation de 49 % dans Santander Bank Polska. Au Royaume-Uni, Chesnara envisage le rachat de l’activité assurance vie de HSBC UK, et Crédit Agricole a pris une participation de 9,9 % dans la banque belge Crelan. En Islande, Kvika banki a reçu des indications d’intérêt de Arion Banki et Islandbanki, et UniCredit a augmenté sa participation dans Alpha Bank à ~20 %.
+ 
+Les agences de notation ont continué à procéder à des relèvements de notes : Moody’s a relevé la note de Bank of Cyprus à A3, BCP à A2, Novo Banco à Baa1, Monte dei Paschi à Baa1. Fitch a relevé la note de Bank of Ireland à A- et Permanent TSB à BBB, Bank Millennium à BBB-, tout en plaçant sous surveillance évolutive la note de Mediobanca en raison des incertitudes liées au M&A (rachat par Monte ou bien rachat de Banca Generali).
+ OR 
+Avril 2025 :
+Les performances d’avril, stables à légèrement positives, masquent un mois volatil qui a mal commencé, principalement impacté par l’annonce des « tarifs réciproques » le 2 avril. Cela a créé un environnement de marché très négatif jusqu’au 9 avril, date à laquelle une pause de 90 jours a été annoncée. Les marchés se sont ensuite redressés et ont terminé le mois soit stables, soit positifs grâce au resserrement des spreads et à la baisse générale des taux.
+ 
+Les spreads ont récupéré 60% de leur écartement du début du mois d’avril, mais ont tout de même fini plus écartés dans tous les segments de la structure du capital : les Seniors se sont écartés de +10pdb, les Tier 2 IG de +20pdb et les AT1 de +45pdb.
+ 
+En revanche, les taux ont baissé dans toutes les devises G3 : environ -30pdb en €, entre -28 et +11pdb en $ et entre -40 et -23pdb en £. Ainsi, les performances sont positives dans tous les segments sauf les AT1, avec une performance de +1,0%/+1,1% pour les dettes Seniors des banques et assureurs, +0,8% pour les Tier 2 IG et +0,7% pour les dettes Subordonnées des assureurs, tandis que les AT1 ont terminé stables (AT1 en euros) ou légèrement négatifs à -0,3 % (AT1 toutes devises).
+ 
+Le marché primaire a été très calme après la chute des marchés au début du mois, suivie des périodes de blackout liées à la publication des résultats du 1Q25. Quoi qu’il en soit, les rares émissions réalisées ont été bien accueillies et émises avec peu ou pas de prime de nouvelle émission (NIP), ce qui montre la disponibilité de liquidités prêtes à être investies.
+ 
+La BCE a une nouvelle fois abaissé ses taux à 2,25 %, tout en adoptant un ton accommodant, mais en reconnaissant également qu’elle avait désormais atteint la neutralité.
+ 
+En ce qui concerne les résultats, les entreprises européennes du secteur financier et des assurances (FIG) ayant présenté leurs résultats pour le 1Q25 ont affiché de très bonnes performances : BNPP a enregistré un profit net de 2,95 milliards d’euros (-5 % en glissement annuel), Bankinter 270 millions (+35 %), Mapfre 276 millions (+28 %), Nordea 1,2 milliard (-9 %).
+ 
+Les fusions-acquisitions (M&A) restent d'actualité dans le secteur FIG européen, malgré la crise, avec plusieurs annonces de fusion durant le mois. Parmi celles-ci, Mediobanca a lancé une offre publique d’achat pour acquérir Banca Generali, entièrement financée par la vente de sa participation dans Generali. Baloise et Helvetia vont créer le deuxième plus grand assureur suisse avec une part de marché domestique de 20 %. Ageas a acquis esure au Royaume-Uni pour 1,3 milliard de livres sterling, tandis que Banco BPM a réussi à obtenir 90 % du capital d’Anima. Santander envisagerait de vendre sa filiale polonaise. Enfin, BBVA a reçu l’approbation de la CNMC espagnole pour acheter Sabadell.
+ 
+Les agences de notation ont continué à procéder à des relèvements de notes : Fitch et Moody’s ont amélioré la note de mBank, passant de BBB- à BBB et de Baa3 à Ba1 respectivement. Bank Millennium a été relevée à Ba1 contre Ba2, avec une perspective positive. OTP Bank a également été rehaussée à BBB contre BBB- par S&P. La Grèce a été rehaussée à BBB par S&P avec une perspective stable, tandis que les banques grecques ont vu leur note relevée d’un cran par Fitch : NBG et Eurobank à BBB-, et Piraeus et Alpha Bank à BB+. Swedbank a été relevée de Aa3 à Aa2."
+  
+
+
+
 Attendu (JSON strict) :
 {
-  "global_summary": "6–16 puces synthétiques (thèmes, drivers, risques, highlights).",
+  "global_summary": "Entre 300 et 600 mots. Inspirés des exemples ci-dessus. Recap des comptes rendus weekly, organisés par les thématiques ma, results, financials_credit_spread, primary and other important infos. FLuide, organisé.).",
   "ma_and_ratings": ["2–10 puces propres"],
   "results": ["2–10 puces propres"],
   "financial_credit_spreads": ["2–10 puces propres"],
