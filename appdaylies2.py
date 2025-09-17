@@ -1585,7 +1585,7 @@ Enfin, sur le plan des notations, S&P a relevé la note de Sava Re et de Zavarov
 -----
 Attendu (JSON strict) :
 {
-  "global_summary": "Quelques lignes par catégories. Ne pas omettre d'informations. Paragraphe structuré, fluide. Un retour à la ligne par thème (m&a, primary market, results, spreads, autres infos).",
+  "global_summary": "Bien s'inspirer des exemples donnés ci dessous pour la structure. Enttre 300 et 500 mots. paragraphe structuré, fluide. Un retour à la ligne par thème (m&a, primary market, results, spreads, autres infos).",
   "ma_and_ratings": ["2 à 8 puces propres"],
   "results": ["2 à 8 puces propres"],
   "financial_credit_spreads": ["2 à 8 puces propres"],
