@@ -525,8 +525,8 @@ if page=="Weekly":
             selected_emails = [m for m in st.session_state["weekly_email_list"] if m["message_id"] in ids]
 
         files_cnt = len(weekly_files or [])
-        if not selected_emails and files_cnt < 5:
-            st.error("Sélectionnez au moins **un e-mail** OU déposez **≥ 5 fichiers** (PDF/HTML) pour générer le Weekly.")
+        if not selected_emails and files_cnt < 2:
+            st.error("Sélectionnez au moins **un e-mail** OU déposez **≥ 2 fichiers** (PDF/HTML) pour générer le Weekly.")
         else:
             emails_override = selected_emails if selected_emails else []
             docs = collect_sources_for_range(start_dt, end_dt, SUBJECT_WEEKLY_FILTER, weekly_files, emails_override=emails_override)
