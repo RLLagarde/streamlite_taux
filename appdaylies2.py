@@ -1547,7 +1547,7 @@ Retourne un JSON strict:
 }"""
 
 WEEKLY_SYS = (
-    "Tu es analyste crédit. À partir d’un contenu agrégé (déjà classé), génère un résumé hebdomadaire PROPRE.\n"
+    "Tu es analyste crédit. À partir d’un contenu agrégé (déjà classé), génère un résumé hebdomadaire PROPRE entre 300 et 500 mots.\n"
     "Objectifs: dédoublonner, regrouper ce qui se répète, garder chiffres/échéances exacts, zéro hallucination, phrases complètes.\n"
     "Style: fluide, cohérent, structuré. Ne pas tronquer.\n"
 )
@@ -1685,7 +1685,7 @@ def synth_llm_weekly(weekly_input_text: str) -> Dict[str,str]:
         r = client.chat.completions.create(
             model=OPENAI_MODEL,
             response_format={"type":"json_object"},
-            temperature=0.2,
+            temperature=0.3,
             messages=[{"role":"system","content":WEEKLY_SYS},{"role":"user","content":usr}],
         )
         parsed = json.loads(r.choices[0].message.content or "{}")
@@ -1881,6 +1881,7 @@ if page=="Weekly":
                     f"## {k}\n{categorized[k]}" for k in DAILY_FIELDS if categorized.get(k, "").strip()
                 )
                 # 1 appel de synthèse
+                st.expander("DEBUG - Input summarize_weekly").code(json.dumps(weekly_input, indent=2, ensure_ascii=False))
                 llm = synth_llm_weekly(weekly_input)
                 fields = {k: dedupe_bullets(llm.get(k,"")) for k in DAILY_FIELDS}
                 global_summary = dedupe_bullets(llm.get("global_summary",""))
