@@ -577,7 +577,7 @@ elif page=="Monthly":
 
     today = date.today()
     y = int(st.number_input("Année", value=today.year, step=1))
-    m = int(st.number_input("Mois", 1, 12, value=today.month, step=1))
+    mo = int(st.number_input("Mois", 1, 12, value=today.month, step=1))
     first = date(int(y), int(m), 1)
     nxt   = first + relativedelta(months=1)
     st.caption(f"Période: {first.isoformat()} → {(nxt - timedelta(days=1)).isoformat()} (thèmes puis chrono du plus ancien au plus récent)")
@@ -645,7 +645,7 @@ elif page=="Monthly":
             llm = synth_llm_monthly(monthly_input)
             fields = {k: dedupe_bullets(llm.get(k,"")) for k in DAILY_FIELDS}
             global_summary = dedupe_bullets(llm.get("global_summary",""))
-            month_key = f"{y:04d}-{m:02d}"
+            month_key = f"{y:04d}-{mo:02d}"
             payload = {
                 "month": month_key,
                 "fields": fields,
